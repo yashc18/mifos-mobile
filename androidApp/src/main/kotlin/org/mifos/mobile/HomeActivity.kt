@@ -63,6 +63,8 @@ class HomeActivity : ComponentActivity() {
             when (uiState) {
                 HomeActivityUiState.Loading -> true
                 is Success -> false
+                HomeActivityUiState.Loading -> TODO()
+                is Success -> TODO()
             }
         }
 

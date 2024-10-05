@@ -144,4 +144,9 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
 
     debugApi(libs.androidx.compose.ui.tooling)
+
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
+
+
+
 }

@@ -34,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.mifos.mobile.R
 import org.mifos.mobile.core.designsystem.theme.MifosBackground
 import org.mifos.mobile.navigation.MifosNavHost
@@ -45,10 +46,19 @@ fun MifosApp(
     onClickLogout: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val systemUiController = rememberSystemUiController()
+    val isOffline by appState.isOffline.collectAsStateWithLifecycle()
+
+    // Set the status bar color based on your theme
+    val statusBarColor = MaterialTheme.colorScheme.primary // Use the defined primary color
+
+    // Apply the status bar color
+    LaunchedEffect(Unit) {
+        systemUiController.setStatusBarColor(color = statusBarColor)
+    }
+
     MifosBackground(modifier) {
         val snackbarHostState = remember { SnackbarHostState() }
-
-        val isOffline by appState.isOffline.collectAsStateWithLifecycle()
 
         // If user is not connected to the internet show a snack bar to inform them.
         val notConnectedMessage = stringResource(R.string.not_connected)
