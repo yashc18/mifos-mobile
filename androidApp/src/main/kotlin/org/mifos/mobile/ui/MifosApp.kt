@@ -32,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import org.mifos.mobile.R
@@ -73,7 +72,7 @@ fun MifosApp(
 
         Scaffold(
             modifier = Modifier.semantics {
-                testTagsAsResourceId = true
+
             },
             containerColor = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground,
