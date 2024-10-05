@@ -72,7 +72,6 @@ fun MifosApp(
 
         Scaffold(
             modifier = Modifier.semantics {
-
             },
             containerColor = Color.Transparent,
             contentColor = MaterialTheme.colorScheme.onBackground,
